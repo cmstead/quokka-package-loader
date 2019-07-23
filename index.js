@@ -1,18 +1,14 @@
 const path = require('path');
 
 function loaderFactory(localDir) {
-    
-    function load(modulePath) {
-        return require(path.join(localDir, modulePath));
-    }
-
     return {
-        load
+        load: (modulePath) =>
+            require(path.join(localDir, modulePath))
     }
 }
 
 module.exports = {
-    before: function(configuration) {
+    before: function () {
         global.loaderFactory = loaderFactory;
     }
 }
