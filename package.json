@@ -1,0 +1,12 @@
+{
+  "name": "quokka-package-loader",
+  "version": "1.0.0",
+  "description": "An external package loader for Quokka -- because reasons",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  
+  "author": "Chris Stead",
+  "license": "MPL-2.0"
+}
