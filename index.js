@@ -1,9 +1,21 @@
 const path = require('path');
 
 function loaderFactory(localDir) {
+    function loadFile(modulePath) {
+        return require(path.join(localDir, modulePath));
+    }
+
+    function importFile(modulePath) {
+        try{
+            return import(path.join(localDir, modulePath))
+        } catch (e) {
+            return Promise.reject(new Error('Import not yet supported by node. Sorry. :-('));
+        }
+    }
+
     return {
-        load: (modulePath) =>
-            require(path.join(localDir, modulePath))
+        load: loadFile,
+        import: importFile
     }
 }
 
